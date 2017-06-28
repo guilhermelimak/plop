@@ -39,7 +39,4 @@
     "node": ">=4.0"
   },
   "preferGlobal": "true",
-  "bin": {
-    "plop": "./src/plop.js"
-  }
 }

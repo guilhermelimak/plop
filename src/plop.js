@@ -19,12 +19,14 @@ var Plop = new Liftoff({
 	v8flags: v8flags
 });
 
-Plop.launch({
-	cwd: argv.cwd,
-	configPath: argv.plopfile,
-	require: argv.require,
-	completion: argv.completion
-}, run);
+function launchPlop(args) {
+	Plop.launch(Object.assign({
+		cwd: argv.cwd,
+		configPath: argv.plopfile,
+		require: argv.require,
+		completion: argv.completion
+	}, args), run);
+}
 
 function run(env) {
 	var generators, plopfilePath, plop;
@@ -106,3 +108,5 @@ function doThePlop(generator) {
 			process.exit(1);
 		});
 }
+
+module.exports = launchPlop;
